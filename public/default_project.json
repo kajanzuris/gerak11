@@ -1,0 +1,361 @@
+{
+  "projectId": "0222-apple-cutter",
+  "metadata": {
+    "title": "Alat Pemotong Apel Praktis",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "durationInFrames": 567
+  },
+  "videoSource": "video0222.mp4",
+  "audioConfig": {
+    "useOriginalVideoAudio": true,
+    "customAudioPath": "voiceover.mp3",
+    "customAudioVolume": 1.0,
+    "backgroundMusicPath": null,
+    "bgmVolume": 0.15,
+    "sfxEvents": [
+      { "frame": 0, "type": "whoosh.wav", "volume": 0.65 },
+      { "frame": 80, "type": "pop.wav", "volume": 0.7 },
+      { "frame": 132, "type": "heartbeat.wav", "volume": 0.9 },
+      { "frame": 165, "type": "bounce.wav", "volume": 0.8 },
+      { "frame": 248, "type": "whoosh.wav", "volume": 0.7 },
+      { "frame": 248, "type": "ding.wav", "volume": 0.85 },
+      { "frame": 303, "type": "pop.wav", "volume": 0.65 },
+      { "frame": 345, "type": "slice.wav", "volume": 0.8 },
+      { "frame": 360, "type": "sparkle.wav", "volume": 0.7 },
+      { "frame": 416, "type": "pop.wav", "volume": 0.6 },
+      { "frame": 432, "type": "pop.wav", "volume": 0.6 },
+      { "frame": 448, "type": "pop.wav", "volume": 0.6 },
+      { "frame": 472, "type": "pop.wav", "volume": 0.55 },
+      { "frame": 484, "type": "pop.wav", "volume": 0.55 },
+      { "frame": 496, "type": "pop.wav", "volume": 0.55 },
+      { "frame": 525, "type": "ding.wav", "volume": 0.9 },
+      { "frame": 525, "type": "sparkle.wav", "volume": 0.8 }
+    ]
+  },
+  "lighting": {
+    "problemEndFrame": 248,
+    "flashFrame": 248,
+    "darkVignetteIntensity": 0.65,
+    "brightContrast": 1.06,
+    "brightSaturation": 1.18
+  },
+  "parallaxCard": {
+    "enabled": true,
+    "startFrame": 248,
+    "endFrame": 305,
+    "stampTextTop": "1X",
+    "stampTextBottom": "TEKAN"
+  },
+  "kineticPanels": [
+    {
+      "startFrame": 0,
+      "endFrame": 80,
+      "type": "problem_alert",
+      "line1": "POTONG APEL",
+      "line2": "PAKAI PISAU?",
+      "badgeColor": "#FF2442",
+      "textColor": "#FFFFFF"
+    },
+    {
+      "startFrame": 80,
+      "endFrame": 132,
+      "type": "warning_tilted",
+      "line1": "TAPI KALAU...",
+      "line2": "MIRING SEBELAH?!",
+      "badgeColor": "#FFB800",
+      "textColor": "#111111"
+    },
+    {
+      "startFrame": 132,
+      "endFrame": 165,
+      "type": "danger_pulse",
+      "line1": "BAHAYA BUAT JARI!",
+      "line2": "JARI DEG-DEGAN!",
+      "badgeColor": "#D50000",
+      "textColor": "#FFFFFF",
+      "icon": "⚠️"
+    },
+    {
+      "startFrame": 165,
+      "endFrame": 216,
+      "type": "bounce_drop",
+      "line1": "DAN APEL MALAH...",
+      "line2": "LONCAT KE LANTAI! 💥",
+      "badgeColor": "#FF6D00",
+      "textColor": "#FFFFFF"
+    },
+    {
+      "startFrame": 216,
+      "endFrame": 248,
+      "type": "glitch_stress",
+      "line1": "",
+      "line2": "YA SIAP-SIAP STRES! 😵",
+      "badgeColor": "#FF1744",
+      "textColor": "#FF5252"
+    },
+    {
+      "startFrame": 248,
+      "endFrame": 303,
+      "type": "solution_double",
+      "line1": "CUKUP PAKAI",
+      "line2": "ALAT POTONG INI!",
+      "badgeColor": "#FFD700",
+      "textColor": "#111111"
+    },
+    {
+      "startFrame": 303,
+      "endFrame": 345,
+      "type": "action_press",
+      "line1": "CUKUP TEKAN",
+      "line2": "1 KALI SAJA!",
+      "badgeColor": "#00E676",
+      "textColor": "#111111"
+    },
+    {
+      "startFrame": 345,
+      "endFrame": 414,
+      "type": "result_neat",
+      "line1": "LANGSUNG TERPOTONG",
+      "line2": "RAPI TANPA RIBET! ✨",
+      "badgeColor": "#FFD700",
+      "textColor": "#111111"
+    },
+    {
+      "startFrame": 468,
+      "endFrame": 525,
+      "type": "safe_shield",
+      "line1": "",
+      "line2": "100% AMAN DARI PISAU",
+      "badgeColor": "#00E676",
+      "textColor": "#FFFFFF",
+      "icon": "🛡️"
+    },
+    {
+      "startFrame": 525,
+      "endFrame": 567,
+      "type": "climax_cta",
+      "tagText": "Simpan Buat Dapurmu!",
+      "line1": "TINGGAL TEKAN,",
+      "line2": "LANGSUNG NIKMAT!",
+      "badgeColor": "#FFD700",
+      "textColor": "#111111"
+    }
+  ],
+  "contextualStickers": [
+    {
+      "startFrame": 132,
+      "endFrame": 165,
+      "stickerType": "heartbeat_ekg",
+      "position": "center"
+    },
+    {
+      "startFrame": 165,
+      "endFrame": 216,
+      "stickerType": "bouncing_apple",
+      "impactFrame": 180
+    },
+    {
+      "startFrame": 216,
+      "endFrame": 248,
+      "stickerType": "sweat_drops"
+    },
+    {
+      "startFrame": 303,
+      "endFrame": 345,
+      "stickerType": "downward_arrows"
+    },
+    {
+      "startFrame": 345,
+      "endFrame": 414,
+      "stickerType": "sparkles"
+    }
+  ],
+  "checklistPills": {
+    "startFrame": 414,
+    "endFrame": 468,
+    "header": "💡 3 KEUNGGULAN UTAMA:",
+    "items": [
+      { "text": "LEBIH CEPAT", "triggerFrame": 416 },
+      { "text": "HIGIENIS", "triggerFrame": 432 },
+      { "text": "LEBIH AMAN", "triggerFrame": 448 }
+    ]
+  },
+  "interactiveCallouts": [
+    {
+      "startFrame": 468,
+      "endFrame": 525,
+      "label": "MATA PISAU STAINLESS",
+      "badgeX": 230,
+      "badgeY": 760,
+      "targetX": 380,
+      "targetY": 960,
+      "badgeBg": "#FFFFFF",
+      "badgeColor": "#111111"
+    },
+    {
+      "startFrame": 480,
+      "endFrame": 525,
+      "label": "PEGANGAN ERGONOMIS",
+      "badgeX": 720,
+      "badgeY": 680,
+      "targetX": 860,
+      "targetY": 880,
+      "badgeBg": "#FFD700",
+      "badgeColor": "#111111"
+    },
+    {
+      "startFrame": 496,
+      "endFrame": 525,
+      "label": "PEMBUANG BIJI",
+      "badgeX": 540,
+      "badgeY": 1240,
+      "targetX": 540,
+      "targetY": 1040,
+      "badgeBg": "#00E676",
+      "badgeColor": "#111111"
+    }
+  ],
+  "subtitles": [
+    {
+      "startFrame": 0,
+      "endFrame": 53,
+      "words": [
+        { "text": "MOTONG", "start": 0, "end": 12 },
+        { "text": "APEL", "start": 12, "end": 24 },
+        { "text": "PAKAI", "start": 24, "end": 36 },
+        { "text": "PISAU?", "start": 36, "end": 53 }
+      ]
+    },
+    {
+      "startFrame": 54,
+      "endFrame": 84,
+      "words": [
+        { "text": "BISA", "start": 54, "end": 68 },
+        { "text": "SIH.", "start": 68, "end": 84 }
+      ]
+    },
+    {
+      "startFrame": 85,
+      "endFrame": 132,
+      "words": [
+        { "text": "TAPI", "start": 85, "end": 94 },
+        { "text": "KALAU", "start": 94, "end": 103 },
+        { "text": "HASILNYA", "start": 103, "end": 112 },
+        { "text": "MIRING", "start": 112, "end": 121 },
+        { "text": "SEBELAH,", "start": 121, "end": 132 }
+      ]
+    },
+    {
+      "startFrame": 132,
+      "endFrame": 165,
+      "words": [
+        { "text": "JARI", "start": 132, "end": 146 },
+        { "text": "DEG-DEGAN,", "start": 146, "end": 165 }
+      ]
+    },
+    {
+      "startFrame": 165,
+      "endFrame": 216,
+      "words": [
+        { "text": "DAN", "start": 165, "end": 172 },
+        { "text": "APEL", "start": 172, "end": 181 },
+        { "text": "MALAH", "start": 181, "end": 190 },
+        { "text": "LONCAT", "start": 190, "end": 199 },
+        { "text": "KE", "start": 199, "end": 206 },
+        { "text": "LANTAI,", "start": 206, "end": 216 }
+      ]
+    },
+    {
+      "startFrame": 216,
+      "endFrame": 248,
+      "words": [
+        { "text": "YA", "start": 216, "end": 224 },
+        { "text": "SIAP-SIAP", "start": 224, "end": 236 },
+        { "text": "STRES.", "start": 236, "end": 248 }
+      ]
+    },
+    {
+      "startFrame": 248,
+      "endFrame": 303,
+      "words": [
+        { "text": "PAKAI", "start": 248, "end": 260 },
+        { "text": "ALAT", "start": 260, "end": 272 },
+        { "text": "POTONG", "start": 272, "end": 286 },
+        { "text": "APEL!", "start": 286, "end": 303 }
+      ]
+    },
+    {
+      "startFrame": 303,
+      "endFrame": 345,
+      "words": [
+        { "text": "CUKUP", "start": 303, "end": 316 },
+        { "text": "TEKAN", "start": 316, "end": 330 },
+        { "text": "SEKALI,", "start": 330, "end": 345 }
+      ]
+    },
+    {
+      "startFrame": 345,
+      "endFrame": 414,
+      "words": [
+        { "text": "APEL", "start": 345, "end": 356 },
+        { "text": "LANGSUNG", "start": 356, "end": 368 },
+        { "text": "TERPOTONG", "start": 368, "end": 382 },
+        { "text": "RAPI", "start": 382, "end": 394 },
+        { "text": "TANPA", "start": 394, "end": 404 },
+        { "text": "RIBET.", "start": 404, "end": 414 }
+      ]
+    },
+    {
+      "startFrame": 414,
+      "endFrame": 468,
+      "words": [
+        { "text": "LEBIH", "start": 414, "end": 426 },
+        { "text": "CEPAT,", "start": 426, "end": 438 },
+        { "text": "HIGIENIS,", "start": 438, "end": 452 },
+        { "text": "DAN", "start": 452, "end": 459 },
+        { "text": "AMAN.", "start": 459, "end": 468 }
+      ]
+    },
+    {
+      "startFrame": 468,
+      "endFrame": 496,
+      "words": [
+        { "text": "GAK", "start": 468, "end": 472 },
+        { "text": "ADA", "start": 472, "end": 476 },
+        { "text": "LAGI", "start": 476, "end": 480 },
+        { "text": "DRAMA", "start": 480, "end": 485 },
+        { "text": "JARI", "start": 485, "end": 490 },
+        { "text": "PISAU", "start": 490, "end": 496 }
+      ]
+    },
+    {
+      "startFrame": 496,
+      "endFrame": 525,
+      "words": [
+        { "text": "ATAU", "start": 496, "end": 502 },
+        { "text": "APEL", "start": 502, "end": 510 },
+        { "text": "JADI", "start": 510, "end": 516 },
+        { "text": "ABSTRAK.", "start": 516, "end": 525 }
+      ]
+    },
+    {
+      "startFrame": 525,
+      "endFrame": 567,
+      "words": [
+        { "text": "TINGGAL", "start": 525, "end": 533 },
+        { "text": "TEKAN,", "start": 533, "end": 541 },
+        { "text": "HAP,", "start": 541, "end": 549 },
+        { "text": "LANGSUNG", "start": 549, "end": 557 },
+        { "text": "NIKMAT!", "start": 557, "end": 567 }
+      ]
+    }
+  ],
+  "brandingBar": {
+    "headerText": "SMART KITCHEN GADGET",
+    "footerText": "ALAT PEMOTONG BUAH SERBAGUNA",
+    "footerTag": "PREMIUM 304",
+    "showProgressBar": true
+  }
+}
