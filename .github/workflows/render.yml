@@ -1,0 +1,121 @@
+name: Render Video with Remotion
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Target folder (contoh: "video3"), beberapa folder ("video1, video2, video3"), path ("public/default_project.json"), atau "all"'
+        required: true
+        default: 'all'
+
+  push:
+    paths:
+      - 'public/projects/**/project.json'
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: ⚙️ Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: 📦 Install Dependencies
+        run: npm ci
+
+      - name: 🌐 Ensure Remotion Headless Chrome & FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          npx remotion browser ensure
+
+      - name: 🎬 Render Remotion Videos
+        run: |
+          mkdir -p output
+          TARGET_FILES=()
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            INPUT_TARGET="${{ github.event.inputs.target }}"
+            echo "Mode: Manual Workflow Dispatch"
+            echo "Input Target: $INPUT_TARGET"
+
+            if [ "$INPUT_TARGET" = "all" ]; then
+              for f in public/projects/*/project.json; do
+                [ -f "$f" ] && TARGET_FILES+=("$f")
+              done
+              if [ ${#TARGET_FILES[@]} -eq 0 ] && [ -f "public/default_project.json" ]; then
+                TARGET_FILES+=("public/default_project.json")
+              fi
+            else
+              IFS=',' read -ra ADDR <<< "$INPUT_TARGET"
+              for item in "${ADDR[@]}"; do
+                trimmed=$(echo "$item" | xargs)
+                if [ -f "$trimmed" ]; then
+                  TARGET_FILES+=("$trimmed")
+                elif [ -f "public/projects/$trimmed/project.json" ]; then
+                  TARGET_FILES+=("public/projects/$trimmed/project.json")
+                elif [ -f "public/$trimmed" ]; then
+                  TARGET_FILES+=("public/$trimmed")
+                else
+                  echo "⚠️ Target tidak ditemukan: $trimmed"
+                fi
+              done
+            fi
+          else
+            echo "Mode: Auto Push Trigger"
+            echo "Mendeteksi file project.json yang berubah pada commit ${{ github.sha }}..."
+            CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | grep -E '^public/projects/.+/project\.json$' || true)
+            for f in $CHANGED_FILES; do
+              [ -f "$f" ] && TARGET_FILES+=("$f")
+            done
+            if [ ${#TARGET_FILES[@]} -eq 0 ] && [ -f "public/default_project.json" ]; then
+              TARGET_FILES+=("public/default_project.json")
+            fi
+          fi
+
+          echo "========================================="
+          echo "Total file yang akan dirender: ${#TARGET_FILES[@]}"
+          for file in "${TARGET_FILES[@]}"; do
+            echo " - $file"
+          done
+          echo "========================================="
+
+          if [ ${#TARGET_FILES[@]} -eq 0 ]; then
+            echo "❌ Tidak ada project.json yang valid untuk dirender!"
+            exit 1
+          fi
+
+          for PROJECT_FILE in "${TARGET_FILES[@]}"; do
+            if [[ "$PROJECT_FILE" =~ public/projects/([^/]+)/project\.json ]]; then
+              FOLDER_NAME="${BASH_REMATCH[1]}"
+              OUTPUT_NAME="${FOLDER_NAME}_final.mp4"
+            else
+              OUTPUT_NAME="video_edited.mp4"
+            fi
+
+            echo ""
+            echo "========================================="
+            echo "🎬 Rendering: $PROJECT_FILE -> output/$OUTPUT_NAME"
+            echo "========================================="
+
+            npx remotion render src/index.ts UniversalVideo "output/$OUTPUT_NAME" \
+              --props="$PROJECT_FILE" \
+              --concurrency=4 \
+              --gl=angle
+          done
+
+      - name: 🚀 Upload Video Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: rendered-videos
+          path: output/*.mp4
+          retention-days: 14
