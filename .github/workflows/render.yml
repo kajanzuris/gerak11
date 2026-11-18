@@ -8,9 +8,11 @@ on:
         required: true
         default: 'all'
 
-  push:
-    paths:
-      - 'public/projects/**/project.json'
+  # Render otomatis dimatikan agar upload file tidak memicu render yang belum siap.
+  # Jika ingin mengaktifkan kembali, cukup hapus tanda pagar (#) di bawah ini:
+  # push:
+  #   paths:
+  #     - 'public/projects/**/project.json'
 
 jobs:
   render:
@@ -22,6 +24,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 2
+          lfs: true
 
       - name: ⚙️ Setup Node.js 20
         uses: actions/setup-node@v4
@@ -104,8 +107,62 @@ jobs:
 
             echo ""
             echo "========================================="
-            echo "🎬 Rendering: $PROJECT_FILE -> output/$OUTPUT_NAME"
+            echo "🔍 Validasi file media untuk: $PROJECT_FILE"
             echo "========================================="
+
+            # Validasi keberadaan file video/audio sebelum memanggil Remotion
+            node -e '
+            const fs = require("fs");
+            const path = require("path");
+            const pFile = process.argv[1];
+            try {
+              const data = JSON.parse(fs.readFileSync(pFile, "utf8"));
+              const checkList = [];
+              if (data.clips && data.clips.length > 0) {
+                data.clips.forEach(c => c.source && checkList.push({ key: "clips[]", src: c.source }));
+              } else if (data.videoSource) {
+                checkList.push({ key: "videoSource", src: data.videoSource });
+              }
+              if (data.audioConfig && data.audioConfig.customAudioPath) {
+                checkList.push({ key: "customAudioPath", src: data.audioConfig.customAudioPath });
+              }
+
+              let hasError = false;
+              for (const item of checkList) {
+                if (item.src.startsWith("http://") || item.src.startsWith("https://")) continue;
+                const rel = item.src.replace(/^\/?(public\/)?/, "");
+                const full = path.join("public", rel);
+                if (!fs.existsSync(full)) {
+                  console.error("\n❌ ========================================================");
+                  console.error("❌ ERROR [404 Not Found]: File media tidak ada di GitHub!");
+                  console.error("   Properti JSON : " + item.key);
+                  console.error("   Path di JSON  : " + item.src);
+                  console.error("   Lokasi dicari : " + full);
+                  const parentDir = path.dirname(full);
+                  if (fs.existsSync(parentDir)) {
+                    console.error("\n📁 Isi folder " + parentDir + " di GitHub saat ini:");
+                    const files = fs.readdirSync(parentDir);
+                    if (files.length === 0) console.error("   (Folder kosong!)");
+                    else files.forEach(f => console.error("   - " + f));
+                  } else {
+                    console.error("\n📁 Folder " + parentDir + " belum ada di GitHub!");
+                  }
+                  console.error("\n💡 Solusi:");
+                  console.error("   1. Pastikan file " + path.basename(full) + " sudah di-upload/push ke folder " + parentDir);
+                  console.error("   2. Perhatikan huruf besar/kecil (Linux case-sensitive: tesd.mp4 vs tesd.MP4)");
+                  console.error("========================================================\n");
+                  hasError = true;
+                }
+              }
+              if (hasError) process.exit(1);
+            } catch (err) {
+              console.error("Gagal membaca atau mem-parse JSON: " + err.message);
+              process.exit(1);
+            }
+            ' "$PROJECT_FILE"
+
+            echo "✅ Semua file media terverifikasi ada."
+            echo "🎬 Rendering: $PROJECT_FILE -> output/$OUTPUT_NAME"
 
             npx remotion render src/index.ts UniversalVideo "output/$OUTPUT_NAME" \
               --props="$PROJECT_FILE" \
