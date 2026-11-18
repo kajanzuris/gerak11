@@ -115,8 +115,23 @@ jobs:
             const fs = require("fs");
             const path = require("path");
             const pFile = process.argv[1];
+            const folderName = process.argv[2];
+
             try {
-              const data = JSON.parse(fs.readFileSync(pFile, "utf8"));
+              let raw = fs.readFileSync(pFile, "utf8");
+              let data = JSON.parse(raw);
+
+              // Auto-sinkronisasi jika nama folder tidak cocok dengan slug di JSON (misal di generator tertulis video2 tapi ditaruh di video1)
+              if (folderName && data.projectId && data.projectId !== folderName) {
+                console.log(`⚡ SINKRONISASI OTOMATIS: Folder proyek adalah "${folderName}", tetapi project.json masih berisi slug "${data.projectId}".`);
+                console.log(`   Menyelaraskan semua path "projects/${data.projectId}/" -> "projects/${folderName}/"...`);
+                raw = raw.split(`projects/${data.projectId}/`).join(`projects/${folderName}/`);
+                data = JSON.parse(raw);
+                data.projectId = folderName;
+                fs.writeFileSync(pFile, JSON.stringify(data, null, 2), "utf8");
+                console.log(`   ✅ File project.json berhasil diselaraskan dengan folder "${folderName}".`);
+              }
+
               const checkList = [];
               if (data.clips && data.clips.length > 0) {
                 data.clips.forEach(c => c.source && checkList.push({ key: "clips[]", src: c.source }));
@@ -159,7 +174,7 @@ jobs:
               console.error("Gagal membaca atau mem-parse JSON: " + err.message);
               process.exit(1);
             }
-            ' "$PROJECT_FILE"
+            ' "$PROJECT_FILE" "$FOLDER_NAME"
 
             echo "✅ Semua file media terverifikasi ada."
             echo "🎬 Rendering: $PROJECT_FILE -> output/$OUTPUT_NAME"
