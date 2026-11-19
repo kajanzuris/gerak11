@@ -1,7 +1,7 @@
 {
   "projectId": "video1",
   "metadata": {
-    "title": "CELANA LEGGING 3/4 WANITA",
+    "title": "CELANA LEGGING 3/4",
     "width": 1080,
     "height": 1920,
     "fps": 30,
@@ -35,48 +35,48 @@
       },
       {
         "frame": 138,
-        "type": "ding.wav",
-        "volume": 0.7
+        "type": "pop.wav",
+        "volume": 0.8
       },
       {
         "frame": 180,
         "type": "sparkle.wav",
-        "volume": 0.6
+        "volume": 0.7
       },
       {
-        "frame": 240,
-        "type": "pop.wav",
-        "volume": 0.8
+        "frame": 228,
+        "type": "ding.wav",
+        "volume": 0.9
       }
     ]
   },
   "lighting": {
-    "problemEndFrame": 105,
-    "flashFrame": 105,
+    "problemEndFrame": 120,
+    "flashFrame": 120,
     "darkVignetteIntensity": 0.65,
     "brightContrast": 1.08,
     "brightSaturation": 1.15
   },
   "parallaxCard": {
     "enabled": true,
-    "startFrame": 105,
-    "endFrame": 165,
-    "stampTextTop": "1X",
-    "stampTextBottom": "TEKAN"
+    "startFrame": 120,
+    "endFrame": 180,
+    "stampTextTop": "STRETCH",
+    "stampTextBottom": "NYAMAN"
   },
   "kineticPanels": [
     {
       "startFrame": 0,
-      "endFrame": 78,
+      "endFrame": 75,
       "type": "problem_alert",
-      "line1": "CARI CELANA",
-      "line2": "YANG NYAMAN?",
+      "line1": "CELANA INI",
+      "line2": "CUKUP MENARIK",
       "badgeColor": "#FF2442",
       "textColor": "#FFFFFF"
     },
     {
       "startFrame": 78,
-      "endFrame": 138,
+      "endFrame": 135,
       "type": "action_press",
       "line1": "POTONGAN",
       "line2": "TIGA PER EMPAT",
@@ -85,7 +85,7 @@
     },
     {
       "startFrame": 138,
-      "endFrame": 240,
+      "endFrame": 225,
       "type": "result_neat",
       "line1": "PINGGANG KARET",
       "line2": "BANYAK WARNA",
@@ -93,44 +93,36 @@
       "textColor": "#000000"
     },
     {
-      "startFrame": 240,
+      "startFrame": 228,
       "endFrame": 300,
-      "type": "cta",
-      "line1": "CEK ULASAN",
-      "line2": "DI KERANJANG",
+      "type": "climax_cta",
+      "line1": "CEK KERANJANG",
+      "line2": "SEKARANG",
       "badgeColor": "#FFD700",
       "textColor": "#111111"
     }
   ],
   "contextualStickers": [
     {
-      "startFrame": 0,
-      "endFrame": 60,
-      "stickerType": "heartbeat_ekg",
-      "x": 918,
-      "y": 192,
-      "size": 216
-    },
-    {
-      "startFrame": 78,
-      "endFrame": 120,
+      "startFrame": 90,
+      "endFrame": 135,
       "stickerType": "downward_arrows",
       "x": 540,
-      "y": 1392,
+      "y": 1008,
       "size": 216
     },
     {
-      "startFrame": 138,
-      "endFrame": 195,
+      "startFrame": 150,
+      "endFrame": 210,
       "stickerType": "sparkles",
       "x": 216,
-      "y": 480,
+      "y": 384,
       "size": 216
     }
   ],
   "checklistPills": {
     "startFrame": 78,
-    "endFrame": 255,
+    "endFrame": 300,
     "top": 430,
     "header": "💡 3 KEUNGGULAN UTAMA:",
     "items": [
@@ -139,7 +131,7 @@
         "triggerFrame": 78
       },
       {
-        "text": "PINGGANG ELASTIS",
+        "text": "PINGGANG KARET",
         "triggerFrame": 138
       },
       {
@@ -150,18 +142,18 @@
   },
   "interactiveCallouts": [
     {
-      "startFrame": 78,
-      "endFrame": 120,
+      "startFrame": 45,
+      "endFrame": 105,
       "label": "POTONGAN 3/4",
       "badgeX": 280,
-      "badgeY": 1202,
+      "badgeY": 1250,
       "targetX": 540,
-      "targetY": 1402,
+      "targetY": 1450,
       "badgeBg": "#FFFFFF",
       "badgeColor": "#111111"
     },
     {
-      "startFrame": 138,
+      "startFrame": 120,
       "endFrame": 180,
       "label": "PINGGANG KARET",
       "badgeX": 280,
@@ -175,7 +167,7 @@
   "subtitles": [
     {
       "startFrame": 0,
-      "endFrame": 45,
+      "endFrame": 42,
       "words": [
         {
           "text": "MENURUTKU",
@@ -190,32 +182,32 @@
         {
           "text": "BIKIN",
           "start": 24,
-          "end": 33
+          "end": 30
         },
         {
           "text": "CELANA",
-          "start": 33,
-          "end": 45
+          "start": 30,
+          "end": 42
         }
       ]
     },
     {
-      "startFrame": 45,
+      "startFrame": 42,
       "endFrame": 90,
       "words": [
         {
           "text": "INI",
-          "start": 45,
-          "end": 51
+          "start": 42,
+          "end": 48
         },
         {
           "text": "CUKUP",
-          "start": 51,
-          "end": 63
+          "start": 48,
+          "end": 60
         },
         {
           "text": "MENARIK",
-          "start": 63,
+          "start": 60,
           "end": 78
         },
         {
@@ -232,11 +224,11 @@
         {
           "text": "POTONGAN",
           "start": 90,
-          "end": 105
+          "end": 108
         },
         {
           "text": "TIGA",
-          "start": 105,
+          "start": 108,
           "end": 114
         },
         {
@@ -253,100 +245,100 @@
     },
     {
       "startFrame": 138,
-      "endFrame": 192,
+      "endFrame": 186,
       "words": [
         {
           "text": "PINGGANGNYA",
           "start": 138,
-          "end": 159
+          "end": 156
         },
         {
           "text": "PAKAI",
-          "start": 159,
-          "end": 171
+          "start": 156,
+          "end": 168
         },
         {
           "text": "KARET",
-          "start": 171,
-          "end": 183
+          "start": 168,
+          "end": 180
         },
         {
           "text": "DENGAN",
-          "start": 183,
-          "end": 192
+          "start": 180,
+          "end": 186
         }
       ]
     },
     {
-      "startFrame": 192,
-      "endFrame": 240,
+      "startFrame": 186,
+      "endFrame": 228,
       "words": [
         {
           "text": "PILIHAN",
-          "start": 192,
-          "end": 204
+          "start": 186,
+          "end": 198
         },
         {
           "text": "WARNA",
-          "start": 204,
-          "end": 216
+          "start": 198,
+          "end": 210
         },
         {
           "text": "VARIATIF.",
-          "start": 216,
-          "end": 240
+          "start": 210,
+          "end": 228
         }
       ]
     },
     {
-      "startFrame": 240,
-      "endFrame": 282,
+      "startFrame": 228,
+      "endFrame": 264,
       "words": [
         {
           "text": "COBA",
-          "start": 240,
-          "end": 249
+          "start": 228,
+          "end": 240
         },
         {
           "text": "KLIK",
-          "start": 249,
-          "end": 258
+          "start": 240,
+          "end": 246
         },
         {
           "text": "KERANJANG",
-          "start": 258,
-          "end": 273
+          "start": 246,
+          "end": 258
         },
         {
           "text": "UNTUK",
-          "start": 273,
-          "end": 282
+          "start": 258,
+          "end": 264
         }
       ]
     },
     {
-      "startFrame": 282,
+      "startFrame": 264,
       "endFrame": 300,
       "words": [
         {
           "text": "INTIP",
-          "start": 282,
-          "end": 291
+          "start": 264,
+          "end": 270
         },
         {
           "text": "SENDIRI",
-          "start": 291,
-          "end": 300
+          "start": 270,
+          "end": 282
         },
         {
           "text": "ULASAN",
-          "start": 300,
-          "end": 301
+          "start": 282,
+          "end": 294
         },
         {
           "text": "DARI",
-          "start": 300,
-          "end": 301
+          "start": 294,
+          "end": 300
         }
       ]
     },
@@ -364,8 +356,8 @@
   ],
   "brandingBar": {
     "headerText": "FASHION WANITA",
-    "footerText": "CELANA LEGGING 3/4 WANITA",
-    "footerTag": "BAHAN PREMIUM",
+    "footerText": "CELANA LEGGING 3/4",
+    "footerTag": "PREMIUM QUALITY",
     "showProgressBar": true
   }
 }
