@@ -17,6 +17,25 @@ const resolveMediaSource = (src: string) => {
   return staticFile(cleaned);
 };
 
+// Field opsional dari generator (project.json). Bila tidak ada, dipakai nilai bawaan = tampilan klasik.
+type LightingExtra = {
+  dimBrightness?: number;
+  dimContrast?: number;
+  dimSaturation?: number;
+  flashPeak?: number;
+  settleBrightness?: number;
+  flashOpacity?: number;
+  flashColor?: string;
+  flashFrames?: number;
+  vignetteAfter?: number;
+};
+type ParallaxExtra = {
+  tiltY?: number;
+  tiltX?: number;
+  scale?: number;
+  radius?: number;
+};
+
 interface Props {
   videoSource: string;
   clips?: VideoClip[];
@@ -34,44 +53,68 @@ export const DynamicBackground: React.FC<Props> = ({
 }) => {
   const frame = useCurrentFrame();
 
+  const lx = (lighting || {}) as LightingConfig & LightingExtra;
   const {
-    problemEndFrame = 248,
-    flashFrame = 248,
+    problemEndFrame: problemEndRaw = 248,
+    flashFrame: flashRaw = 248,
     darkVignetteIntensity = 0.65,
     brightContrast = 1.06,
     brightSaturation = 1.18,
-  } = lighting || {};
+    dimBrightness = 0.78,
+    dimContrast = 1.15,
+    dimSaturation = 0.85,
+    flashPeak = 1.45,
+    settleBrightness = 1.06,
+    flashOpacity = 0.85,
+    flashColor = '#FFFFFF',
+    flashFrames = 8,
+    vignetteAfter = 0.15,
+  } = lx;
+
+  // Pengaman: inputRange interpolate harus naik ketat, jadi momen dijepit
+  // agar [0, f-10, f, f+12, f+30, totalFrames] selalu valid (tidak crash bila f = 0).
+  const maxMoment = Math.max(12, totalFrames - 32);
+  const problemEndFrame = Math.min(Math.max(problemEndRaw, 12), maxMoment);
+  const flashFrame = Math.min(Math.max(flashRaw, 12), maxMoment);
+  const midBrightness = settleBrightness + (flashPeak - settleBrightness) * 0.15;
 
   // Dynamic Lighting (Gelap Terang)
   const brightness = interpolate(
     frame,
     [0, problemEndFrame - 10, flashFrame, flashFrame + 12, flashFrame + 30, totalFrames],
-    [0.78, 0.78, 1.45, 1.12, 1.06, 1.06],
+    [dimBrightness, dimBrightness, flashPeak, midBrightness, settleBrightness, settleBrightness],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
   const contrast = interpolate(
     frame,
     [0, problemEndFrame - 10, flashFrame + 12, totalFrames],
-    [1.15, 1.15, brightContrast, brightContrast],
+    [dimContrast, dimContrast, brightContrast, brightContrast],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
   const saturation = interpolate(
     frame,
     [0, problemEndFrame - 10, flashFrame + 12, totalFrames],
-    [0.85, 0.85, brightSaturation, brightSaturation],
+    [dimSaturation, dimSaturation, brightSaturation, brightSaturation],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
   const vignetteOpacity = interpolate(
     frame,
     [0, problemEndFrame - 10, flashFrame + 12, totalFrames],
-    [darkVignetteIntensity, darkVignetteIntensity, 0.15, 0.15],
+    [darkVignetteIntensity, darkVignetteIntensity, vignetteAfter, vignetteAfter],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
-  // Parallax 3D Card Mode
+  // Parallax 3D Card Mode (sudut, skala, dan radius bisa diatur dari generator)
+  const px = (parallaxCard || {}) as ParallaxCardConfig & ParallaxExtra;
+  const {
+    tiltY = -6.5,
+    tiltX = 3.5,
+    scale: cardScaleEnd = 0.88,
+    radius: cardRadius = 36,
+  } = px;
   const isParallaxActive =
     parallaxCard?.enabled &&
     frame >= parallaxCard.startFrame &&
@@ -90,28 +133,28 @@ export const DynamicBackground: React.FC<Props> = ({
   });
 
   const cardScale = isParallaxActive
-    ? interpolate(parallaxProgress - parallaxExit, [0, 1], [1.0, 0.88], {
+    ? interpolate(parallaxProgress - parallaxExit, [0, 1], [1.0, cardScaleEnd], {
         extrapolateLeft: 'clamp',
         extrapolateRight: 'clamp',
       })
     : 1.0;
 
   const rotateY = isParallaxActive
-    ? interpolate(parallaxProgress - parallaxExit, [0, 1], [0, -6.5], {
+    ? interpolate(parallaxProgress - parallaxExit, [0, 1], [0, tiltY], {
         extrapolateLeft: 'clamp',
         extrapolateRight: 'clamp',
       }) + Math.sin(frame * 0.08) * 1.2
     : 0;
 
   const rotateX = isParallaxActive
-    ? interpolate(parallaxProgress - parallaxExit, [0, 1], [0, 3.5], {
+    ? interpolate(parallaxProgress - parallaxExit, [0, 1], [0, tiltX], {
         extrapolateLeft: 'clamp',
         extrapolateRight: 'clamp',
       }) + Math.cos(frame * 0.08) * 0.8
     : 0;
 
   const borderRadius = isParallaxActive
-    ? interpolate(parallaxProgress - parallaxExit, [0, 1], [0, 36], {
+    ? interpolate(parallaxProgress - parallaxExit, [0, 1], [0, cardRadius], {
         extrapolateLeft: 'clamp',
         extrapolateRight: 'clamp',
       })
@@ -241,14 +284,16 @@ export const DynamicBackground: React.FC<Props> = ({
       </div>
 
       {/* Flash overlay during turnaround */}
-      {frame >= flashFrame - 4 && frame <= flashFrame + 8 && (
+      {flashOpacity > 0 &&
+        frame >= flashFrame - 4 &&
+        frame <= flashFrame + Math.max(1, flashFrames) && (
         <AbsoluteFill
           style={{
-            backgroundColor: '#FFFFFF',
+            backgroundColor: flashColor,
             opacity: interpolate(
               frame,
-              [flashFrame - 4, flashFrame, flashFrame + 8],
-              [0, 0.85, 0]
+              [flashFrame - 4, flashFrame, flashFrame + Math.max(1, flashFrames)],
+              [0, flashOpacity, 0]
             ),
             pointerEvents: 'none',
             zIndex: 30,
