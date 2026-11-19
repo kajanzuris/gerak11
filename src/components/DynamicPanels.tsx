@@ -608,3 +608,4 @@ export const DynamicPanels: React.FC<Props> = ({ panels, parallaxCard }) => {
     </div>
   );
 };
+ 
