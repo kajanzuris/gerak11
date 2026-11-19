@@ -1,19 +1,19 @@
 {
   "projectId": "video1",
   "metadata": {
-    "title": "CELANA LEGGING 3/4",
+    "title": "NAMPAN ROTASI SERBAGUNA",
     "width": 1080,
     "height": 1920,
     "fps": 30,
-    "durationInFrames": 300
+    "durationInFrames": 660
   },
-  "videoSource": "projects/video1/tesd.mp4",
+  "videoSource": "projects/video1/1090.mp4",
   "clips": [
     {
-      "source": "projects/video1/tesd.mp4",
+      "source": "projects/video1/1090.mp4",
       "startFrame": 0,
-      "endFrame": 301,
-      "durationInFrames": 301
+      "endFrame": 661,
+      "durationInFrames": 661
     }
   ],
   "audioConfig": {
@@ -26,140 +26,151 @@
       {
         "frame": 0,
         "type": "whoosh.wav",
+        "volume": 0.8
+      },
+      {
+        "frame": 105,
+        "type": "heartbeat.wav",
         "volume": 0.7
       },
       {
-        "frame": 78,
-        "type": "pop.wav",
-        "volume": 0.8
+        "frame": 456,
+        "type": "ding.wav",
+        "volume": 0.9
       },
       {
-        "frame": 138,
-        "type": "pop.wav",
-        "volume": 0.8
-      },
-      {
-        "frame": 180,
+        "frame": 495,
         "type": "sparkle.wav",
         "volume": 0.7
       },
       {
-        "frame": 228,
-        "type": "ding.wav",
-        "volume": 0.9
+        "frame": 585,
+        "type": "pop.wav",
+        "volume": 0.8
       }
     ]
   },
   "lighting": {
-    "problemEndFrame": 120,
-    "flashFrame": 120,
-    "darkVignetteIntensity": 0.65,
+    "problemEndFrame": 456,
+    "flashFrame": 456,
+    "darkVignetteIntensity": 0.6,
     "brightContrast": 1.08,
     "brightSaturation": 1.15
   },
   "parallaxCard": {
     "enabled": true,
-    "startFrame": 120,
-    "endFrame": 180,
-    "stampTextTop": "STRETCH",
-    "stampTextBottom": "NYAMAN"
+    "startFrame": 456,
+    "endFrame": 516,
+    "stampTextTop": "360°",
+    "stampTextBottom": "ROTASI"
   },
   "kineticPanels": [
     {
       "startFrame": 0,
       "endFrame": 75,
       "type": "problem_alert",
-      "line1": "CELANA INI",
-      "line2": "CUKUP MENARIK",
-      "badgeColor": "#FF2442",
+      "line1": "AMBIL BUMBU",
+      "line2": "SULIT DIJANGKAU",
+      "badgeColor": "#00C853",
       "textColor": "#FFFFFF"
     },
     {
-      "startFrame": 78,
-      "endFrame": 135,
-      "type": "action_press",
-      "line1": "POTONGAN",
-      "line2": "TIGA PER EMPAT",
-      "badgeColor": "#00E676",
-      "textColor": "#000000"
+      "startFrame": 105,
+      "endFrame": 165,
+      "type": "danger_pulse",
+      "line1": "",
+      "line2": "LIHAT DETAILNYA",
+      "badgeColor": "#D50000",
+      "textColor": "#FFFFFF",
+      "icon": "🤯"
     },
     {
-      "startFrame": 138,
-      "endFrame": 225,
-      "type": "result_neat",
-      "line1": "PINGGANG KARET",
-      "line2": "BANYAK WARNA",
-      "badgeColor": "#00E676",
-      "textColor": "#000000"
+      "startFrame": 225,
+      "endFrame": 315,
+      "type": "glitch_stress",
+      "line1": "DAPUR",
+      "line2": "BERANTAKAN",
+      "badgeColor": "#FF1744",
+      "textColor": "#FF5252"
     },
     {
-      "startFrame": 228,
-      "endFrame": 300,
-      "type": "climax_cta",
-      "line1": "CEK KERANJANG",
-      "line2": "SEKARANG",
+      "startFrame": 456,
+      "endFrame": 555,
+      "type": "solution_double",
+      "line1": "SOLUSI RAPI",
+      "line2": "NAMPAN ROTASI",
       "badgeColor": "#FFD700",
       "textColor": "#111111"
+    },
+    {
+      "startFrame": 585,
+      "endFrame": 660,
+      "type": "climax_cta",
+      "line1": "",
+      "line2": "LIHAT DETAILNYA",
+      "badgeColor": "#FFD700",
+      "textColor": "#111111",
+      "tagText": "CEK KERANJANG SEKARANG"
     }
   ],
   "contextualStickers": [
     {
-      "startFrame": 90,
-      "endFrame": 135,
-      "stickerType": "downward_arrows",
-      "x": 540,
-      "y": 1008,
+      "startFrame": 30,
+      "endFrame": 90,
+      "stickerType": "sweat_drops",
+      "x": 864,
+      "y": 240,
       "size": 216
     },
     {
-      "startFrame": 150,
-      "endFrame": 210,
+      "startFrame": 480,
+      "endFrame": 540,
       "stickerType": "sparkles",
       "x": 216,
-      "y": 384,
+      "y": 768,
       "size": 216
     }
   ],
   "checklistPills": {
-    "startFrame": 78,
-    "endFrame": 300,
+    "startFrame": 320,
+    "endFrame": 452,
     "top": 430,
     "header": "💡 3 KEUNGGULAN UTAMA:",
     "items": [
       {
-        "text": "POTONGAN 3/4",
-        "triggerFrame": 78
+        "text": "PUTAR 360 DERAJAT",
+        "triggerFrame": 335
       },
       {
-        "text": "PINGGANG KARET",
-        "triggerFrame": 138
+        "text": "MUDAH DIJANGKAU",
+        "triggerFrame": 410
       },
       {
-        "text": "WARNA VARIATIF",
-        "triggerFrame": 180
+        "text": "DAPUR LEBIH RAPI",
+        "triggerFrame": 443
       }
     ]
   },
   "interactiveCallouts": [
     {
-      "startFrame": 45,
-      "endFrame": 105,
-      "label": "POTONGAN 3/4",
-      "badgeX": 280,
-      "badgeY": 1250,
-      "targetX": 540,
-      "targetY": 1450,
+      "startFrame": 15,
+      "endFrame": 75,
+      "label": "DESAIN MINIMALIS",
+      "badgeX": 778,
+      "badgeY": 870,
+      "targetX": 518,
+      "targetY": 1070,
       "badgeBg": "#FFFFFF",
       "badgeColor": "#111111"
     },
     {
-      "startFrame": 120,
-      "endFrame": 180,
-      "label": "PINGGANG KARET",
-      "badgeX": 280,
-      "badgeY": 760,
-      "targetX": 540,
-      "targetY": 960,
+      "startFrame": 360,
+      "endFrame": 420,
+      "label": "ROTASI HALUS",
+      "badgeX": 773,
+      "badgeY": 866,
+      "targetX": 513,
+      "targetY": 1066,
       "badgeBg": "#FFFFFF",
       "badgeColor": "#111111"
     }
@@ -167,196 +178,528 @@
   "subtitles": [
     {
       "startFrame": 0,
-      "endFrame": 42,
+      "endFrame": 29,
       "words": [
         {
-          "text": "MENURUTKU",
+          "text": "MAU",
           "start": 0,
-          "end": 18
+          "end": 6
         },
         {
-          "text": "YANG",
-          "start": 18,
+          "text": "AMBIL",
+          "start": 6,
+          "end": 15
+        },
+        {
+          "text": "BUMBU",
+          "start": 15,
           "end": 24
         },
         {
-          "text": "BIKIN",
+          "text": "DI",
           "start": 24,
-          "end": 30
-        },
-        {
-          "text": "CELANA",
-          "start": 30,
-          "end": 42
+          "end": 29
         }
       ]
     },
     {
-      "startFrame": 42,
-      "endFrame": 90,
+      "startFrame": 29,
+      "endFrame": 48,
       "words": [
         {
-          "text": "INI",
-          "start": 42,
+          "text": "POJOK",
+          "start": 29,
+          "end": 39
+        },
+        {
+          "text": "RAK,",
+          "start": 39,
           "end": 48
-        },
+        }
+      ]
+    },
+    {
+      "startFrame": 48,
+      "endFrame": 84,
+      "words": [
         {
-          "text": "CUKUP",
+          "text": "TAPI",
           "start": 48,
-          "end": 60
+          "end": 57
         },
         {
-          "text": "MENARIK",
-          "start": 60,
+          "text": "MALAH",
+          "start": 57,
+          "end": 66
+        },
+        {
+          "text": "JATUHIN",
+          "start": 66,
           "end": 78
         },
         {
-          "text": "ADALAH",
+          "text": "YANG",
           "start": 78,
-          "end": 90
+          "end": 84
         }
       ]
     },
     {
-      "startFrame": 90,
-      "endFrame": 138,
+      "startFrame": 84,
+      "endFrame": 93,
       "words": [
         {
-          "text": "POTONGAN",
-          "start": 90,
+          "text": "LAIN.",
+          "start": 84,
+          "end": 93
+        }
+      ]
+    },
+    {
+      "startFrame": 93,
+      "endFrame": 128,
+      "words": [
+        {
+          "text": "MAU",
+          "start": 93,
+          "end": 99
+        },
+        {
+          "text": "AMBIL",
+          "start": 99,
           "end": 108
         },
         {
-          "text": "TIGA",
+          "text": "SKINCARE",
           "start": 108,
-          "end": 114
+          "end": 123
         },
         {
-          "text": "PER",
-          "start": 114,
-          "end": 120
-        },
+          "text": "DI",
+          "start": 123,
+          "end": 128
+        }
+      ]
+    },
+    {
+      "startFrame": 128,
+      "endFrame": 138,
+      "words": [
         {
-          "text": "EMPATNYA.",
-          "start": 120,
+          "text": "MEJA,",
+          "start": 128,
           "end": 138
         }
       ]
     },
     {
       "startFrame": 138,
-      "endFrame": 186,
+      "endFrame": 174,
       "words": [
         {
-          "text": "PINGGANGNYA",
+          "text": "TAPI",
           "start": 138,
+          "end": 147
+        },
+        {
+          "text": "HARUS",
+          "start": 147,
           "end": 156
         },
         {
-          "text": "PAKAI",
+          "text": "BONGKAR",
           "start": 156,
-          "end": 168
+          "end": 165
         },
         {
-          "text": "KARET",
-          "start": 168,
+          "text": "DULU",
+          "start": 165,
+          "end": 174
+        }
+      ]
+    },
+    {
+      "startFrame": 174,
+      "endFrame": 192,
+      "words": [
+        {
+          "text": "BIAR",
+          "start": 174,
           "end": 180
         },
         {
-          "text": "DENGAN",
+          "text": "KETEMU.",
           "start": 180,
-          "end": 186
+          "end": 192
         }
       ]
     },
     {
-      "startFrame": 186,
-      "endFrame": 228,
+      "startFrame": 192,
+      "endFrame": 234,
       "words": [
         {
-          "text": "PILIHAN",
-          "start": 186,
-          "end": 198
+          "text": "RAK",
+          "start": 192,
+          "end": 201
         },
         {
-          "text": "WARNA",
-          "start": 198,
-          "end": 210
+          "text": "BIASA",
+          "start": 201,
+          "end": 213
         },
         {
-          "text": "VARIATIF.",
-          "start": 210,
-          "end": 228
+          "text": "BIKIN",
+          "start": 213,
+          "end": 222
+        },
+        {
+          "text": "BARANG",
+          "start": 222,
+          "end": 234
         }
       ]
     },
     {
-      "startFrame": 228,
-      "endFrame": 264,
+      "startFrame": 234,
+      "endFrame": 258,
       "words": [
         {
-          "text": "COBA",
-          "start": 228,
-          "end": 240
+          "text": "SULIT",
+          "start": 234,
+          "end": 243
         },
         {
-          "text": "KLIK",
-          "start": 240,
-          "end": 246
-        },
-        {
-          "text": "KERANJANG",
-          "start": 246,
+          "text": "DIJANGKAU,",
+          "start": 243,
           "end": 258
-        },
-        {
-          "text": "UNTUK",
-          "start": 258,
-          "end": 264
         }
       ]
     },
     {
-      "startFrame": 264,
-      "endFrame": 300,
+      "startFrame": 258,
+      "endFrame": 297,
       "words": [
         {
-          "text": "INTIP",
-          "start": 264,
-          "end": 270
+          "text": "JADI",
+          "start": 258,
+          "end": 267
+        },
+        {
+          "text": "SERING",
+          "start": 267,
+          "end": 276
+        },
+        {
+          "text": "RIBET",
+          "start": 276,
+          "end": 285
         },
         {
           "text": "SENDIRI",
-          "start": 270,
-          "end": 282
-        },
-        {
-          "text": "ULASAN",
-          "start": 282,
-          "end": 294
-        },
-        {
-          "text": "DARI",
-          "start": 294,
-          "end": 300
+          "start": 285,
+          "end": 297
         }
       ]
     },
     {
-      "startFrame": 300,
-      "endFrame": 301,
+      "startFrame": 297,
+      "endFrame": 333,
       "words": [
         {
-          "text": "PEMBELINYA.",
-          "start": 300,
-          "end": 301
+          "text": "PAS",
+          "start": 297,
+          "end": 303
+        },
+        {
+          "text": "MAU",
+          "start": 303,
+          "end": 309
+        },
+        {
+          "text": "AMBIL",
+          "start": 309,
+          "end": 318
+        },
+        {
+          "text": "SESUATU.",
+          "start": 318,
+          "end": 333
+        }
+      ]
+    },
+    {
+      "startFrame": 333,
+      "endFrame": 354,
+      "words": [
+        {
+          "text": "UJUNG-UJUNGNYA,",
+          "start": 333,
+          "end": 354
+        }
+      ]
+    },
+    {
+      "startFrame": 354,
+      "endFrame": 399,
+      "words": [
+        {
+          "text": "DAPUR",
+          "start": 354,
+          "end": 366
+        },
+        {
+          "text": "BERANTAKAN",
+          "start": 366,
+          "end": 384
+        },
+        {
+          "text": "DAN",
+          "start": 384,
+          "end": 390
+        },
+        {
+          "text": "MEJA",
+          "start": 390,
+          "end": 399
+        }
+      ]
+    },
+    {
+      "startFrame": 399,
+      "endFrame": 438,
+      "words": [
+        {
+          "text": "RIAS",
+          "start": 399,
+          "end": 408
+        },
+        {
+          "text": "JADI",
+          "start": 408,
+          "end": 417
+        },
+        {
+          "text": "PENUH",
+          "start": 417,
+          "end": 426
+        },
+        {
+          "text": "BOTOL",
+          "start": 426,
+          "end": 438
+        }
+      ]
+    },
+    {
+      "startFrame": 438,
+      "endFrame": 456,
+      "words": [
+        {
+          "text": "BERSERAKAN.",
+          "start": 438,
+          "end": 456
+        }
+      ]
+    },
+    {
+      "startFrame": 456,
+      "endFrame": 498,
+      "words": [
+        {
+          "text": "PAKAI",
+          "start": 456,
+          "end": 465
+        },
+        {
+          "text": "NAMPAN",
+          "start": 465,
+          "end": 477
+        },
+        {
+          "text": "ROTASI",
+          "start": 477,
+          "end": 489
+        },
+        {
+          "text": "INI,",
+          "start": 489,
+          "end": 498
+        }
+      ]
+    },
+    {
+      "startFrame": 498,
+      "endFrame": 543,
+      "words": [
+        {
+          "text": "TINGGAL",
+          "start": 498,
+          "end": 510
+        },
+        {
+          "text": "PUTAR",
+          "start": 510,
+          "end": 522
+        },
+        {
+          "text": "SEMUA",
+          "start": 522,
+          "end": 534
+        },
+        {
+          "text": "BISA",
+          "start": 534,
+          "end": 543
+        }
+      ]
+    },
+    {
+      "startFrame": 543,
+      "endFrame": 582,
+      "words": [
+        {
+          "text": "DIJANGKAU",
+          "start": 543,
+          "end": 558
+        },
+        {
+          "text": "TANPA",
+          "start": 558,
+          "end": 567
+        },
+        {
+          "text": "REPOT.",
+          "start": 567,
+          "end": 582
+        }
+      ]
+    },
+    {
+      "startFrame": 582,
+      "endFrame": 621,
+      "words": [
+        {
+          "text": "COCOK",
+          "start": 582,
+          "end": 594
+        },
+        {
+          "text": "BUAT",
+          "start": 594,
+          "end": 603
+        },
+        {
+          "text": "BUMBU",
+          "start": 603,
+          "end": 612
+        },
+        {
+          "text": "DAPUR",
+          "start": 612,
+          "end": 621
+        }
+      ]
+    },
+    {
+      "startFrame": 621,
+      "endFrame": 660,
+      "words": [
+        {
+          "text": "ATAU",
+          "start": 621,
+          "end": 630
+        },
+        {
+          "text": "SKINCARE",
+          "start": 630,
+          "end": 645
+        },
+        {
+          "text": "BIAR",
+          "start": 645,
+          "end": 654
+        },
+        {
+          "text": "LEBIH",
+          "start": 654,
+          "end": 660
+        }
+      ]
+    },
+    {
+      "startFrame": 660,
+      "endFrame": 661,
+      "words": [
+        {
+          "text": "RAPI,",
+          "start": 660,
+          "end": 661
+        }
+      ]
+    },
+    {
+      "startFrame": 660,
+      "endFrame": 661,
+      "words": [
+        {
+          "text": "MUDAH",
+          "start": 660,
+          "end": 661
+        },
+        {
+          "text": "DIAMBIL,",
+          "start": 660,
+          "end": 661
+        }
+      ]
+    },
+    {
+      "startFrame": 660,
+      "endFrame": 661,
+      "words": [
+        {
+          "text": "DAN",
+          "start": 660,
+          "end": 661
+        },
+        {
+          "text": "NGGAK",
+          "start": 660,
+          "end": 661
+        },
+        {
+          "text": "ADA",
+          "start": 660,
+          "end": 661
+        },
+        {
+          "text": "DRAMA",
+          "start": 660,
+          "end": 661
+        }
+      ]
+    },
+    {
+      "startFrame": 660,
+      "endFrame": 661,
+      "words": [
+        {
+          "text": "BONGKAR-BONGKAR",
+          "start": 660,
+          "end": 661
+        },
+        {
+          "text": "LAGI.",
+          "start": 660,
+          "end": 661
         }
       ]
     }
   ],
   "brandingBar": {
-    "headerText": "FASHION WANITA",
-    "footerText": "CELANA LEGGING 3/4",
+    "headerText": "KITCHEN & HOME",
+    "footerText": "NAMPAN ROTASI SERBAGUNA",
     "footerTag": "PREMIUM QUALITY",
     "showProgressBar": true
   }
