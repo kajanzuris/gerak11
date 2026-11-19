@@ -100,7 +100,7 @@ jobs:
           for PROJECT_FILE in "${TARGET_FILES[@]}"; do
             if [[ "$PROJECT_FILE" =~ public/projects/([^/]+)/project\.json ]]; then
               FOLDER_NAME="${BASH_REMATCH[1]}"
-              OUTPUT_NAME="${FOLDER_NAME}_final.mp4"
+              OUTPUT_NAME="${FOLDER_NAME}.mp4"
             else
               OUTPUT_NAME="video_edited.mp4"
             fi
@@ -185,9 +185,16 @@ jobs:
               --gl=angle
           done
 
+          # Jika hanya merender 1 folder, beri nama zip artifact sesuai nama foldernya
+          if [ ${#TARGET_FILES[@]} -eq 1 ] && [ -n "$FOLDER_NAME" ]; then
+            echo "ARTIFACT_NAME=$FOLDER_NAME" >> $GITHUB_ENV
+          else
+            echo "ARTIFACT_NAME=rendered-videos" >> $GITHUB_ENV
+          fi
+
       - name: 🚀 Upload Video Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: rendered-videos
+          name: ${{ env.ARTIFACT_NAME || 'rendered-videos' }}
           path: output/*.mp4
           retention-days: 14
