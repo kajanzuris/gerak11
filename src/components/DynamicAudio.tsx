@@ -2,6 +2,13 @@ import React from 'react';
 import { Audio, Sequence, staticFile } from 'remotion';
 import { AudioConfig, VideoClip } from '../types/project';
 
+const resolveMediaSource = (src: string) => {
+  if (!src) return '';
+  if (src.startsWith('http://') || src.startsWith('https://')) return src;
+  const cleaned = src.replace(/^\/?(public\/)?/, '');
+  return staticFile(cleaned);
+};
+
 interface Props {
   audioConfig: AudioConfig;
   defaultVideoAudio?: string;
@@ -35,23 +42,23 @@ export const DynamicAudio: React.FC<Props> = ({
               from={clip.startFrame}
               durationInFrames={clip.durationInFrames}
             >
-              <Audio src={staticFile(clip.source)} volume={1.0} />
+              <Audio src={resolveMediaSource(clip.source)} volume={1.0} />
             </Sequence>
           ))
         ) : defaultVideoAudio ? (
-          <Audio src={staticFile(defaultVideoAudio)} volume={1.0} />
+          <Audio src={resolveMediaSource(defaultVideoAudio)} volume={1.0} />
         ) : null
       )}
 
       {/* 2. Custom Audio / Voiceover MP3 (played if specified) */}
       {customAudioPath && (
-        <Audio src={staticFile(customAudioPath)} volume={customAudioVolume} />
+        <Audio src={resolveMediaSource(customAudioPath)} volume={customAudioVolume} />
       )}
 
       {/* 3. Background Music (loops automatically across the whole video) */}
       {backgroundMusicPath && (
         <Audio
-          src={staticFile(backgroundMusicPath)}
+          src={resolveMediaSource(backgroundMusicPath)}
           volume={bgmVolume}
           loop
         />
@@ -69,7 +76,7 @@ export const DynamicAudio: React.FC<Props> = ({
             from={sfx.frame}
             durationInFrames={35}
           >
-            <Audio src={staticFile(soundFile)} volume={sfx.volume ?? 0.7} />
+            <Audio src={resolveMediaSource(soundFile)} volume={sfx.volume ?? 0.7} />
           </Sequence>
         );
       })}

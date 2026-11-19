@@ -23,11 +23,20 @@ export const DynamicChecklist: React.FC<Props> = ({ checklist }) => {
     config: { damping: 12, mass: 0.5, stiffness: 130 },
   });
 
+  // Default top diubah ke 430px agar tidak bertumpuk dengan Top Kinetic Panel (yang berada di top: 120px).
+  // Dapat juga dikustomisasi lewat properti checklist.top di project.json.
+  const topPos =
+    checklist.top !== undefined
+      ? typeof checklist.top === 'number'
+        ? `${checklist.top}px`
+        : checklist.top
+      : '430px';
+
   return (
     <div
       style={{
         position: 'absolute',
-        top: '125px',
+        top: topPos,
         left: '50px',
         display: 'flex',
         flexDirection: 'column',

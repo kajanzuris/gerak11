@@ -10,6 +10,13 @@ import {
 } from 'remotion';
 import { LightingConfig, ParallaxCardConfig, VideoClip } from '../types/project';
 
+const resolveMediaSource = (src: string) => {
+  if (!src) return '';
+  if (src.startsWith('http://') || src.startsWith('https://')) return src;
+  const cleaned = src.replace(/^\/?(public\/)?/, '');
+  return staticFile(cleaned);
+};
+
 interface Props {
   videoSource: string;
   clips?: VideoClip[];
@@ -135,7 +142,7 @@ export const DynamicBackground: React.FC<Props> = ({
                     durationInFrames={duration}
                   >
                     <OffthreadVideo
-                      src={staticFile(clip.source)}
+                      src={resolveMediaSource(clip.source)}
                       style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       muted
                     />
@@ -144,7 +151,7 @@ export const DynamicBackground: React.FC<Props> = ({
               })
             ) : (
               <OffthreadVideo
-                src={staticFile(videoSource)}
+                src={resolveMediaSource(videoSource)}
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 muted
               />
@@ -194,7 +201,7 @@ export const DynamicBackground: React.FC<Props> = ({
                   durationInFrames={duration}
                 >
                   <OffthreadVideo
-                    src={staticFile(clip.source)}
+                    src={resolveMediaSource(clip.source)}
                     style={{
                       width: '100%',
                       height: '100%',
@@ -207,7 +214,7 @@ export const DynamicBackground: React.FC<Props> = ({
             })
           ) : (
             <OffthreadVideo
-              src={staticFile(videoSource)}
+              src={resolveMediaSource(videoSource)}
               style={{
                 width: '100%',
                 height: '100%',

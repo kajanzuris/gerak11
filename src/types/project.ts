@@ -77,6 +77,7 @@ export interface ChecklistPillsConfig {
   endFrame: number;
   header: string;
   items: ChecklistPillItem[];
+  top?: number | string;
 }
 
 export interface CalloutPin {
