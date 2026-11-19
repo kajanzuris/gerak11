@@ -7,10 +7,10 @@
     "fps": 30,
     "durationInFrames": 300
   },
-  "videoSource": "projects/video2/tesd.mp4",
+  "videoSource": "projects/video1/tesd.mp4",
   "clips": [
     {
-      "source": "projects/video2/tesd.mp4",
+      "source": "projects/video1/tesd.mp4",
       "startFrame": 0,
       "endFrame": 301,
       "durationInFrames": 301
@@ -29,7 +29,7 @@
         "volume": 0.8
       },
       {
-        "frame": 75,
+        "frame": 65,
         "type": "pop.wav",
         "volume": 0.7
       },
@@ -39,44 +39,49 @@
         "volume": 0.7
       },
       {
-        "frame": 195,
+        "frame": 165,
         "type": "sparkle.wav",
-        "volume": 0.9
+        "volume": 0.6
       },
       {
-        "frame": 255,
+        "frame": 225,
         "type": "pop.wav",
         "volume": 0.7
+      },
+      {
+        "frame": 270,
+        "type": "ding.wav",
+        "volume": 0.8
       }
     ]
   },
   "lighting": {
-    "problemEndFrame": 75,
-    "flashFrame": 75,
+    "problemEndFrame": 65,
+    "flashFrame": 65,
     "darkVignetteIntensity": 0.65,
     "brightContrast": 1.08,
     "brightSaturation": 1.15
   },
   "parallaxCard": {
     "enabled": true,
-    "startFrame": 75,
-    "endFrame": 135,
-    "stampTextTop": "BEST SELLER",
-    "stampTextBottom": "NYAMAN"
+    "startFrame": 65,
+    "endFrame": 125,
+    "stampTextTop": "BEST",
+    "stampTextBottom": "SELLER"
   },
   "kineticPanels": [
     {
       "startFrame": 0,
-      "endFrame": 75,
+      "endFrame": 65,
       "type": "problem_alert",
-      "line1": "CELANA INI",
-      "line2": "MENARIK BANGET",
+      "line1": "CELANA 3/4",
+      "line2": " NYAMAN",
       "badgeColor": "#FF2442",
       "textColor": "#FFFFFF"
     },
     {
-      "startFrame": 75,
-      "endFrame": 120,
+      "startFrame": 65,
+      "endFrame": 135,
       "type": "action_press",
       "line1": "POTONGAN",
       "line2": "TIGA PER EMPAT",
@@ -84,50 +89,50 @@
       "textColor": "#000000"
     },
     {
-      "startFrame": 120,
-      "endFrame": 195,
+      "startFrame": 135,
+      "endFrame": 225,
       "type": "result_neat",
       "line1": "PINGGANG KARET",
-      "line2": "WARNA VARIATIF",
+      "line2": "BANYAK WARNA",
       "badgeColor": "#00E676",
       "textColor": "#000000"
     },
     {
-      "startFrame": 195,
+      "startFrame": 225,
       "endFrame": 300,
       "type": "cta",
-      "line1": "KLIK",
-      "line2": "KERANJANG",
+      "line1": "CEK REVIEW",
+      "line2": "DI KERANJANG",
       "badgeColor": "#FFD700",
       "textColor": "#111111"
     }
   ],
   "contextualStickers": [
     {
-      "startFrame": 0,
-      "endFrame": 75,
+      "startFrame": 150,
+      "endFrame": 210,
       "stickerType": "sparkles",
-      "x": 864,
-      "y": 288,
+      "x": 216,
+      "y": 384,
       "size": 216
     },
     {
-      "startFrame": 120,
-      "endFrame": 180,
-      "stickerType": "downward_arrows",
-      "x": 540,
-      "y": 960,
+      "startFrame": 240,
+      "endFrame": 300,
+      "stickerType": "sparkles",
+      "x": 864,
+      "y": 1344,
       "size": 216
     }
   ],
   "checklistPills": {
-    "startFrame": 75,
-    "endFrame": 300,
+    "startFrame": 65,
+    "endFrame": 225,
     "header": "💡 3 KEUNGGULAN UTAMA:",
     "items": [
       {
         "text": "POTONGAN 3/4",
-        "triggerFrame": 75
+        "triggerFrame": 65
       },
       {
         "text": "PINGGANG KARET",
@@ -141,20 +146,20 @@
   },
   "interactiveCallouts": [
     {
-      "startFrame": 60,
-      "endFrame": 105,
-      "label": "POTONGAN 3/4",
+      "startFrame": 65,
+      "endFrame": 116,
+      "label": "JAHITAN RAPI",
       "badgeX": 280,
-      "badgeY": 1250,
+      "badgeY": 760,
       "targetX": 540,
-      "targetY": 1450,
+      "targetY": 960,
       "badgeBg": "#FFFFFF",
       "badgeColor": "#111111"
     },
     {
-      "startFrame": 105,
-      "endFrame": 165,
-      "label": "PINGGANG KARET",
+      "startFrame": 116,
+      "endFrame": 150,
+      "label": "ELASTIS",
       "badgeX": 280,
       "badgeY": 760,
       "targetX": 540,
@@ -166,189 +171,189 @@
   "subtitles": [
     {
       "startFrame": 0,
-      "endFrame": 48,
+      "endFrame": 38,
       "words": [
         {
           "text": "MENURUTKU",
           "start": 0,
-          "end": 27
+          "end": 15
         },
         {
           "text": "YANG",
-          "start": 27,
-          "end": 33
+          "start": 15,
+          "end": 20
         },
         {
           "text": "BIKIN",
-          "start": 33,
-          "end": 39
+          "start": 20,
+          "end": 27
         },
         {
           "text": "CELANA",
-          "start": 39,
-          "end": 48
+          "start": 27,
+          "end": 38
         }
       ]
     },
     {
-      "startFrame": 48,
-      "endFrame": 84,
+      "startFrame": 38,
+      "endFrame": 74,
       "words": [
         {
           "text": "INI",
-          "start": 48,
-          "end": 54
+          "start": 38,
+          "end": 44
         },
         {
           "text": "CUKUP",
-          "start": 54,
-          "end": 63
+          "start": 44,
+          "end": 53
         },
         {
           "text": "MENARIK",
-          "start": 63,
-          "end": 75
+          "start": 53,
+          "end": 65
         },
         {
           "text": "ADALAH",
-          "start": 75,
-          "end": 84
+          "start": 65,
+          "end": 74
         }
       ]
     },
     {
-      "startFrame": 84,
-      "endFrame": 117,
+      "startFrame": 74,
+      "endFrame": 116,
       "words": [
         {
           "text": "POTONGAN",
-          "start": 84,
-          "end": 96
+          "start": 74,
+          "end": 89
         },
         {
           "text": "TIGA",
-          "start": 96,
-          "end": 102
+          "start": 89,
+          "end": 96
         },
         {
           "text": "PER",
-          "start": 102,
-          "end": 105
+          "start": 96,
+          "end": 101
         },
         {
           "text": "EMPATNYA.",
-          "start": 105,
-          "end": 117
+          "start": 101,
+          "end": 116
         }
       ]
     },
     {
-      "startFrame": 117,
-      "endFrame": 156,
+      "startFrame": 116,
+      "endFrame": 164,
       "words": [
         {
           "text": "PINGGANGNYA",
-          "start": 117,
-          "end": 135
+          "start": 116,
+          "end": 134
         },
         {
           "text": "PAKAI",
-          "start": 135,
-          "end": 141
+          "start": 134,
+          "end": 143
         },
         {
           "text": "KARET",
-          "start": 141,
-          "end": 150
+          "start": 143,
+          "end": 155
         },
         {
           "text": "DENGAN",
-          "start": 150,
-          "end": 156
+          "start": 155,
+          "end": 164
         }
       ]
     },
     {
-      "startFrame": 156,
-      "endFrame": 192,
+      "startFrame": 164,
+      "endFrame": 203,
       "words": [
         {
           "text": "PILIHAN",
-          "start": 156,
-          "end": 165
+          "start": 164,
+          "end": 176
         },
         {
           "text": "WARNA",
-          "start": 165,
-          "end": 174
+          "start": 176,
+          "end": 186
         },
         {
           "text": "VARIATIF.",
-          "start": 174,
-          "end": 192
+          "start": 186,
+          "end": 203
         }
       ]
     },
     {
-      "startFrame": 192,
-      "endFrame": 228,
+      "startFrame": 203,
+      "endFrame": 245,
       "words": [
         {
           "text": "COBA",
-          "start": 192,
-          "end": 204
+          "start": 203,
+          "end": 213
         },
         {
           "text": "KLIK",
-          "start": 204,
-          "end": 210
+          "start": 213,
+          "end": 221
         },
         {
           "text": "KERANJANG",
-          "start": 210,
-          "end": 222
+          "start": 221,
+          "end": 236
         },
         {
           "text": "UNTUK",
-          "start": 222,
-          "end": 228
+          "start": 236,
+          "end": 245
         }
       ]
     },
     {
-      "startFrame": 228,
-      "endFrame": 264,
+      "startFrame": 245,
+      "endFrame": 284,
       "words": [
         {
           "text": "INTIP",
-          "start": 228,
-          "end": 237
+          "start": 245,
+          "end": 253
         },
         {
           "text": "SENDIRI",
-          "start": 237,
-          "end": 246
+          "start": 253,
+          "end": 266
         },
         {
           "text": "ULASAN",
-          "start": 246,
-          "end": 258
+          "start": 266,
+          "end": 278
         },
         {
           "text": "DARI",
-          "start": 258,
-          "end": 264
+          "start": 278,
+          "end": 284
         }
       ]
     },
     {
-      "startFrame": 264,
-      "endFrame": 282,
+      "startFrame": 284,
+      "endFrame": 300,
       "words": [
         {
           "text": "PEMBELINYA.",
-          "start": 264,
-          "end": 282
+          "start": 284,
+          "end": 300
         }
       ]
     }
